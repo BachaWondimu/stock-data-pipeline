@@ -1,3 +1,4 @@
 # Big-Data-Project
 Full-Time Developer
-![big-data-analytics-big-data-innovation-technology-concept-blockchain-network-analysis-artificial-intelligence-hexagonal-grid-sphere-in-wireframe-hand-on-blue-background-illustration-vector](https://github.com/user-attachments/assets/23e43754-10fc-473f-9dbd-06fa8f13f366)
+![istockphoto-1455180758-1024x1024](https://github.com/user-attachments/assets/803da3b1-2710-44af-9b25-c9dee89b82fb)
+
