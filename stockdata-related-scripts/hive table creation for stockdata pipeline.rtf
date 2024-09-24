@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+DROP TABLE IF EXISTS hive_stock2_data3;\
+\
+CREATE EXTERNAL TABLE hive_stock2_data3 (\
+    rowkey STRING,\
+    open_price DOUBLE,\
+    high_price DOUBLE,\
+    low_price DOUBLE,\
+    close_price DOUBLE,\
+    trade_volume BIGINT\
+)\
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'\
+WITH SERDEPROPERTIES (\
+    "hbase.columns.mapping" = ":key,prices:open_price,prices:high_price,prices:low_price,prices:close_price,prices:trade_volume"\
+)\
+TBLPROPERTIES ("hbase.table.name" = "stock2");\
+\
+\
+select * from hive_stock2_data3; \
+\
+\
+MSCK REPAIR TABLE hive_stock2_data3;}
