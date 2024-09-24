@@ -6,24 +6,33 @@ Full-Time Developer
 
 
 
-#This project has three parts
-##part 1) is stockdata pipe line containing the following components
-##Kafka-producer
-Listens to Stock Market Alpha Vantage API and sends stream of stockdata to kafka topics
+# Project Overview
 
-##kafka-consumer
-Is a spark streaming job the moniters stockdata that arrives at the kafka topics
-It reads the data, change the json data to a format that is compatable with hbase table, and stores the data on an hbase table
+This project is divided into three main parts, each containing different components as described below:
 
-##stockdata-related-scripts 
-contain scrips used to run hbase servers, create hbase table, create hive table on top hbase, and query the data in hive shell
+## Part 1: Stock Data Pipeline
+This pipeline processes stock market data using the following components:
 
- ##part 2) is wordcount spark streaming job
- This program listens to a local directory, recieves text input, count the words in the currently arrived data and send the words and their count to     hbase table.
-There a a hive table created on topo of hbase to access the words and their count in hive as well
-Finally We visualize these information in Tableau
-the following components are related to this pipe line: 
-##wordcountSparkStreamingJob
-##wordcount-related-scrips
+### Kafka Producer
+- Listens to the Alpha Vantage Stock Market API and sends a stream of stock data to Kafka topics.
+
+### Kafka Consumer
+- A Spark Streaming job that monitors stock data arriving in Kafka topics.
+- Reads the data, converts the JSON format to be compatible with an HBase table, and stores the data in HBase.
+
+### Stock Data-Related Scripts
+- Contains scripts for managing HBase servers, creating HBase tables, creating Hive tables on top of HBase, and querying the data in Hive.
+
+## Part 2: Word Count Spark Streaming Job
+This part is focused on processing word count data:
+
+### Word Count Streaming Job
+- Listens to a local directory, receives text input, counts the words in the incoming data, and stores the word count in an HBase table.
+- A Hive table is created on top of HBase to access the words and their counts via Hive.
+- The results are visualized using Tableau.
+
+### Word Count-Related Scripts
+- Includes scripts to set up and manage the Word Count Spark Streaming job, as well as related data processing tasks.
+
   
  
