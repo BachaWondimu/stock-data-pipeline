@@ -1,0 +1,37 @@
+//terminal check
+service --status-all
+
+
+//HBASE
+sudo service hbase-master start
+sudo service hbase-regionserver start
+
+//HABASE AND HIVE
+
+spark-submit   --class com.example.App   --master local[*]   --conf spark.sql.catalogImplementation=hive   --conf spark.hadoop.hive.metastore.uris=thrift://127.0.0.1:9083   target/HBaseToHive-0.0.1-SNAPSHOT.jar
+
+
+//new terminal
+spark-shell --master local[*] \
+  --conf spark.sql.catalogImplementation=hive \
+  --conf spark.hadoop.hive.metastore.uris=thrift://127.0.0.1:9083
+
+:load /home/cloudera/Desktop/test.scala
+
+
+
+
+
+
+//quary
+
+SELECT price_1 FROM commodities WHERE price_1 >100.00;
+
+val df2 = hiveContext.sql("SELECT price_1 FROM commodities WHERE price_1 >100.00")
+df2.show()
+ 
+
+
+
+
+
